@@ -1,0 +1,61 @@
+---
+layout: post
+title:  "CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz ?"
+date:   2017-12-22 20:57:58 +0300
+categories: jekyll update
+---
+
+Merhaba Yıldız Tozları,
+
+Bugün bu dönem aldığım Advance Programming dersinin ödevinde kullanmamız gereken CLI(Command Line Interface)'i ve bunu JAVA(Maven) projemizde nasıl kullanacağımızı anlatacağım ama öncelikle **"CLI nedir?"** onun üzerinde durmak istiyorum.
+
+#### **CLI(Command Line Interface) nedir?**
+
+Eğer Bilgisayar Bilimleri ile ilgili bir bölüm okuyorsanız mutlaka komut satırında debelendiğiniz, bir şeyler yapmaya çalıştığınız olmuştur işte o zamanlarda neler yapabileceğimizi, komutu hangi seçeneklerle kullanabildiğimizi görmek için genelde **"ilgili komut --help"** ya da **"ilgili komut?"** gibi şeyler yaparız.İşte o **--help** ile gelen her şey ve **--help**'in kendisi ilgili komut satırı için bir arayüz. Command Line Interface'de oradan geliyor.Yazılımı geliştiren kişi tarafından komut satırı için bize bir arayüz sağlanmış, neler yapılabileceği vs. gibi.Mesela aşağıdaki gibi.
+
+![Screenshot1]({{ "/assets/CLI-blog/screenshot1.png" | absolute_url }})
+
+Gördüğünüz gibi **apt get install** ile kullanabileceğim seçenekler ve bunların neler yaptığı listelenmiş.İşte bu ödevde bizden bunun gibi yazılımı çalıştırırken kullanabileceğimiz seçenekler yaratmamız isteniyor.Şimdi bizden istenen seçenekler neler ve bunların açıklamaları neler.Ödevin sitesinde belirtilmiş aşağıdaki gibi.
+
+![Screenshot2]({{ "/assets/CLI-blog/screenshot2.png" | absolute_url }})
+
+Şimdi hocamız sağolsun bize linkte bırakmış kullanabileceğimiz CLI araçlarından birinin.[JewelCLI](http://jewelcli.lexicalscope.com/).Şimdi ben direkt nasıl bunu JAVA projemize dahil edip kullanacağımızı anlatacağım.Ben geliştirme ortamı olarak intelliJ IDEA Community Edition kullanıyorum.Siz artık hangi ortamda geliştiriyorsanız ona göre davranmalısınız.
+
+#### **JewelCLI, JAVA projesinde nasıl kullanılır?**
+
+Öncelikle Java maven projenizi oluşturun.Oluşturduktan sonra aşağıdaki gibi bir proje dosyalar ağacınızın oluşmuş olması gerekiyor.Daha sonra **pom.xml** dosyasının içine **JewelCLI** için gerekli dependency'i ekliyoruz.
+
+![Screenshot3]({{ "/assets/CLI-blog/screenshot3.png" | absolute_url }})
+
+
+ Daha sonra normalde **java** klasörünün içi boş fakat ben **"CommandLine"** adında bir interface ve yaratacağım seçenekleri denemek için **Main** sınıfını ürettim.Bu ödevde mesela yazacağınız kodlar bu Main sınıfının içinde olabilir tabiki kodlarınız komut satırındaki argümanlar parse(ayrıştırmak) edildikten sonra.Bunları da yaptıktan sonra şöyle bir görünüm elde etmeniz gerekiyor.Ben seçenekleri yaratan ve bu seçeneklere hangi methodlar vasıtasıyla erişeceğimizi yazdım aşağıdaki gibi.
+
+![Screenshot4]({{ "/assets/CLI-blog/screenshot4.png" | absolute_url }})
+
+Yukarıda detaylı yorum bıraktım 1 seçenek için diğer 3'ü için de aynı şey geçerli.Son olarak en altta **Unparsed** etiketini göreceksiniz, o bu ödev için bizim parse edilmeyen bir argüman.Bu ödevde bizim tweetleri okuyacağımız dosya adı olacak.
+
+#### **Peki yarattığımız seçenekleri nasıl kullanıyoruz?**
+
+Aşağıda yorumlarla detaylandırdığım screenshot'ı detaylı olarak okuyun.Ben burada önce **"CommandLine result = CliFactory.parseArguments(CommandLine.class, args);"** komutu ile komut satırında bizim programızı kullanacak olan kişinin girdiği seçenekleri parse(ayrıştırmak) ediyorum.Peki parse ettiğim bu seçeneklerin değerlerini nasıl okuyacağım mesela kullanıcı **java jar target/trending.jar -n 20 -e mention -i Tweets.txt**
+bu komutu kullandı ben bu seçeneklerin değerlerini nasıl okuyacağım.Resimde de gördüğünüz gibi kullanıcının girdiği her değeri aşağıdaki gibi yakalıyorum.
+
+![Screenshot5]({{ "/assets/CLI-blog/screenshot5.png" | absolute_url }})
+
+#### **Peki komut satırı için seçenekleri intelliJ'de nasıl vereceğim ?**
+
+Şu şekilde önce yukarıda sağ üstte gördüğünüz **Çalıştır** butonunun(**Yeşil Üçgen**) yanındaki yere tıklıyorsunuz.Tıkladıktan sonra **Konfigürasyonları ayarla** ingilizce olarak **Edit Configuration**'a tıklayarak.Programımızın çalışmadan önce vereceğimiz argümanları belirleyebiliyoruz.Aşağıdaki resimde olduğu gibi.**Program Arguments** kısmında.
+
+![Screenshot6]({{ "/assets/CLI-blog/screenshot6.png" | absolute_url }})
+
+Aşağıda programın çıktısını görebilirsiniz.
+
+![Screenshot7]({{ "/assets/CLI-blog/screenshot7.png" | absolute_url }})
+
+Gördüğünüz gibi komut satırındaki seçeneklerin değerlerini başarılı bir şekilde okuduk artık ödev için değeri şu olursa şu kadar dön, entity name'i "mention" olursa şu methodu çalıştır gibi şeyler yazarak ödevi tamamlayabilirsiniz.Şimdilik bu kadar, bu blog için yazılmış kodlara [github hesabımdan](https://github.com/koksalmis/trending) ulaşabilirsiniz.
+
+Teşekkür Ederim.
+
+Enes Köksalmış
+
+
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Java(Maven) projemizden .jar dosyası nasıl oluşturuyoruz? | thoughts, projects, interests</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Java(Maven) projemizden .jar dosyası nasıl oluşturuyoruz?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Merhaba Yıldız Tozları," />
+<meta property="og:description" content="Merhaba Yıldız Tozları," />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2017/12/24/About-Creating-Jar-File.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2017/12/24/About-Creating-Jar-File.html" />
+<meta property="og:site_name" content="thoughts, projects, interests" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-24T12:19:58+03:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Java(Maven) projemizden .jar dosyası nasıl oluşturuyoruz?","url":"http://localhost:4000/jekyll/update/2017/12/24/About-Creating-Jar-File.html","dateModified":"2017-12-24T12:19:58+03:00","datePublished":"2017-12-24T12:19:58+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2017/12/24/About-Creating-Jar-File.html"},"description":"Merhaba Yıldız Tozları,","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="thoughts, projects, interests" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">thoughts, projects, interests</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Java(Maven) projemizden .jar dosyası nasıl oluşturuyoruz?</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-24T12:19:58+03:00" itemprop="datePublished">Dec 24, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Merhaba Yıldız Tozları,</p>
+
+<p>Daha önce CLI nedir ve nasıl projemizde kullanırız üzerine yazı yazmıştım.Yarın ödevin son günü ama :) Bugün belki ödevin kodunu yazmış fakat nasıl jar dosyası üreteceğini konusunda zorlananlar için nasıl jar dosyası oluşturabileceklerini göstermeye çalışacağım. Öncelikle üretmeye çalıştığımız şey ne ve ne içeriyor bilmemiz lazım.Onun için tanım ile başlayalım.</p>
+
+<h4 id="jar-dosyası-nedir"><strong>JAR dosyası nedir?</strong></h4>
+
+<p><a href="https://www.wikiwand.com/en/JAR_(file_format)">Buradan</a> da okuyabileceğiniz gibi.(Eğer Wikipedia’ya erişemiyorsanız. <strong>Wikiwand</strong> eklentisini kullanabilirsiniz.Gayet hoş bir görünüm sağlıyor ve Wikipedia yasağını(!) aşıyor.) JAR birçok java sınıf dosyasını, kılavuz verisini(metadata) ve proje kaynaklarını(metin, resim, vs. gibi) dağıtım için kümeleyen, çalıştırılabilir bir paket fosya formatı. Yani bizim projemizle ilgili her şey bu jar dosyasının içinde olacak.Artık JAR’ın ne olduğunu öğrendiğimize göre üretmeye çalışabiliriz.</p>
+<h4 id="jar-dosyası-javamaven-projesinde-nasıl-üretilir"><strong>JAR dosyası Java(Maven) projesinde nasıl üretilir?</strong></h4>
+
+<p>Öncelikle <strong><em>pom.xml</em></strong> dosyamıza jar dosyası üretmek için gerekli olan direktifleri yazıyoruz.Aşağıda screenshotta <strong>öğrendiğim kadarıyla</strong>, yorum ile detaylandırdım.Detaylı incelemenizi öneriyorum.</p>
+
+<p><img src="http://localhost:4000/assets/JAR-Blogpost/screenshot1.png" alt="Screenshot1" />
+(Bu direktifleri daha önce <strong>JewelCLI</strong> için eklediğimiz direktiflerin altına yazıyoruz unutmayın.)</p>
+
+<p>Gerekli direktifleri yazdıktan sonra jar dosyasını oluşturmak için aşağıdaki adımları takip etmeniz gerekiyor.</p>
+
+<p><strong>Not:</strong>Bu adımları izlediğim bir video’da öğrendim belki başka yolla da üretiliyordur ille böyle olacak diye bir şey şöylemiyorum.</p>
+
+<h4 id="adım-1"><strong>Adım 1</strong></h4>
+
+<p>Önce View–&gt;Tool Window–&gt;Maven Projects’e tıklayın, tıkladıktan sonra sağ tarafta aşağıdaki gibi bir görünüm elde edeceksiniz.</p>
+
+<p><img src="http://localhost:4000/assets/JAR-Blogpost/screenshot2.png" alt="Screenshot2" /></p>
+
+<h4 id="adım-2"><strong>Adım 2</strong></h4>
+
+<p>Şimdi bunlardan sırayla <strong><em>clean</em></strong>, <strong><em>install</em></strong> ve <strong><em>assembly::assembly</em></strong>‘e çift tıklayarak ya da yukardaki çalıştır butonuna(Yeşil Üçgen) basarak çalıştırın.</p>
+
+<h4 id="adım-3"><strong>Adım 3</strong></h4>
+
+<p>Çalıştırdıktan sonra bunları dosya ağacınızda <strong><em>target</em></strong> adlı bir dosyanın oluştuğunu  ve bunun içinde jar dosyanızın oluştuğunu göreceksiniz aşağıdaki gibi.</p>
+
+<p><img src="http://localhost:4000/assets/JAR-Blogpost/screenshot3.png" alt="Screenshot3" /></p>
+
+<h4 id="adım-4"><strong>Adım 4</strong></h4>
+
+<p>Jar dosyanıza <strong>trending.jar</strong>‘a sağ tıklayınca açılan seçeneklerden <strong>Show in Folders</strong>‘a tıklayarak ya da direkt projenizin bulunduğu dosyaya giderek ulaşabilirsiniz.Jar dosyanızı çalıştırmak içinse sadece <strong>java -jar trending.jar gerekliargüman1 gerekliargüman2 …</strong> yapmanız yeterli. Aşağıda nasıl yapıldığını görebilirsiniz.</p>
+
+<p><img src="http://localhost:4000/assets/JAR-Blogpost/screenshot4.png" alt="Screenshot4" /></p>
+
+<p>Aynı dizin altında <strong><em>all_tweets.txt</em></strong> dosyası olmadığı için sadece argümanları bastırdı o kadar.Buraya kadar yazdığım kodlara <a href="https://github.com/koksalmis/trending">github hesabımdan</a> ulaşabilirsiniz.</p>
+
+<p><strong>Not:</strong>Ödevin deadline’ı geçtikten sonra eğer vaktim olursa, ödevin tamamlanmış halini github hesabımda paylaşacağım.</p>
+
+<p>Teşekkür Ederim.</p>
+
+<p>Enes Köksalmış</p>
+
+
+  </div><a class="u-url" href="/jekyll/update/2017/12/24/About-Creating-Jar-File.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Email me!</li><li><a class="u-email" href="mailto:koksalmis@gmail.com">koksalmis@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/koksalmis"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">koksalmis</span></a></li><li><a href="https://www.twitter.com/Ekoksalmis"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">Ekoksalmis</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>projects, interests, and many things that I experienced.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

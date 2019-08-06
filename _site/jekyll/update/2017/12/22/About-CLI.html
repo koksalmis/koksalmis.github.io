@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz ? | thoughts, projects, interests</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz ?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Merhaba Yıldız Tozları," />
+<meta property="og:description" content="Merhaba Yıldız Tozları," />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2017/12/22/About-CLI.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2017/12/22/About-CLI.html" />
+<meta property="og:site_name" content="thoughts, projects, interests" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-22T20:57:58+03:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz ?","url":"http://localhost:4000/jekyll/update/2017/12/22/About-CLI.html","dateModified":"2017-12-22T20:57:58+03:00","datePublished":"2017-12-22T20:57:58+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2017/12/22/About-CLI.html"},"description":"Merhaba Yıldız Tozları,","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="thoughts, projects, interests" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">thoughts, projects, interests</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz ?</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-22T20:57:58+03:00" itemprop="datePublished">Dec 22, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Merhaba Yıldız Tozları,</p>
+
+<p>Bugün bu dönem aldığım Advance Programming dersinin ödevinde kullanmamız gereken CLI(Command Line Interface)’i ve bunu JAVA(Maven) projemizde nasıl kullanacağımızı anlatacağım ama öncelikle <strong>“CLI nedir?”</strong> onun üzerinde durmak istiyorum.</p>
+
+<h4 id="clicommand-line-interface-nedir"><strong>CLI(Command Line Interface) nedir?</strong></h4>
+
+<p>Eğer Bilgisayar Bilimleri ile ilgili bir bölüm okuyorsanız mutlaka komut satırında debelendiğiniz, bir şeyler yapmaya çalıştığınız olmuştur işte o zamanlarda neler yapabileceğimizi, komutu hangi seçeneklerle kullanabildiğimizi görmek için genelde <strong>“ilgili komut –help”</strong> ya da <strong>“ilgili komut?”</strong> gibi şeyler yaparız.İşte o <strong>–help</strong> ile gelen her şey ve <strong>–help</strong>‘in kendisi ilgili komut satırı için bir arayüz. Command Line Interface’de oradan geliyor.Yazılımı geliştiren kişi tarafından komut satırı için bize bir arayüz sağlanmış, neler yapılabileceği vs. gibi.Mesela aşağıdaki gibi.</p>
+
+<p><img src="http://localhost:4000/assets/CLI-blog/screenshot1.png" alt="Screenshot1" /></p>
+
+<p>Gördüğünüz gibi <strong>apt get install</strong> ile kullanabileceğim seçenekler ve bunların neler yaptığı listelenmiş.İşte bu ödevde bizden bunun gibi yazılımı çalıştırırken kullanabileceğimiz seçenekler yaratmamız isteniyor.Şimdi bizden istenen seçenekler neler ve bunların açıklamaları neler.Ödevin sitesinde belirtilmiş aşağıdaki gibi.</p>
+
+<p><img src="http://localhost:4000/assets/CLI-blog/screenshot2.png" alt="Screenshot2" /></p>
+
+<p>Şimdi hocamız sağolsun bize linkte bırakmış kullanabileceğimiz CLI araçlarından birinin.<a href="http://jewelcli.lexicalscope.com/">JewelCLI</a>.Şimdi ben direkt nasıl bunu JAVA projemize dahil edip kullanacağımızı anlatacağım.Ben geliştirme ortamı olarak intelliJ IDEA Community Edition kullanıyorum.Siz artık hangi ortamda geliştiriyorsanız ona göre davranmalısınız.</p>
+
+<h4 id="jewelcli-java-projesinde-nasıl-kullanılır"><strong>JewelCLI, JAVA projesinde nasıl kullanılır?</strong></h4>
+
+<p>Öncelikle Java maven projenizi oluşturun.Oluşturduktan sonra aşağıdaki gibi bir proje dosyalar ağacınızın oluşmuş olması gerekiyor.Daha sonra <strong>pom.xml</strong> dosyasının içine <strong>JewelCLI</strong> için gerekli dependency’i ekliyoruz.</p>
+
+<p><img src="http://localhost:4000/assets/CLI-blog/screenshot3.png" alt="Screenshot3" /></p>
+
+<p>Daha sonra normalde <strong>java</strong> klasörünün içi boş fakat ben <strong>“CommandLine”</strong> adında bir interface ve yaratacağım seçenekleri denemek için <strong>Main</strong> sınıfını ürettim.Bu ödevde mesela yazacağınız kodlar bu Main sınıfının içinde olabilir tabiki kodlarınız komut satırındaki argümanlar parse(ayrıştırmak) edildikten sonra.Bunları da yaptıktan sonra şöyle bir görünüm elde etmeniz gerekiyor.Ben seçenekleri yaratan ve bu seçeneklere hangi methodlar vasıtasıyla erişeceğimizi yazdım aşağıdaki gibi.</p>
+
+<p><img src="http://localhost:4000/assets/CLI-blog/screenshot4.png" alt="Screenshot4" /></p>
+
+<p>Yukarıda detaylı yorum bıraktım 1 seçenek için diğer 3’ü için de aynı şey geçerli.Son olarak en altta <strong>Unparsed</strong> etiketini göreceksiniz, o bu ödev için bizim parse edilmeyen bir argüman.Bu ödevde bizim tweetleri okuyacağımız dosya adı olacak.</p>
+
+<h4 id="peki-yarattığımız-seçenekleri-nasıl-kullanıyoruz"><strong>Peki yarattığımız seçenekleri nasıl kullanıyoruz?</strong></h4>
+
+<p>Aşağıda yorumlarla detaylandırdığım screenshot’ı detaylı olarak okuyun.Ben burada önce <strong>“CommandLine result = CliFactory.parseArguments(CommandLine.class, args);”</strong> komutu ile komut satırında bizim programızı kullanacak olan kişinin girdiği seçenekleri parse(ayrıştırmak) ediyorum.Peki parse ettiğim bu seçeneklerin değerlerini nasıl okuyacağım mesela kullanıcı <strong>java jar target/trending.jar -n 20 -e mention -i Tweets.txt</strong>
+bu komutu kullandı ben bu seçeneklerin değerlerini nasıl okuyacağım.Resimde de gördüğünüz gibi kullanıcının girdiği her değeri aşağıdaki gibi yakalıyorum.</p>
+
+<p><img src="http://localhost:4000/assets/CLI-blog/screenshot5.png" alt="Screenshot5" /></p>
+
+<h4 id="peki-komut-satırı-için-seçenekleri-intellijde-nasıl-vereceğim-"><strong>Peki komut satırı için seçenekleri intelliJ’de nasıl vereceğim ?</strong></h4>
+
+<p>Şu şekilde önce yukarıda sağ üstte gördüğünüz <strong>Çalıştır</strong> butonunun(<strong>Yeşil Üçgen</strong>) yanındaki yere tıklıyorsunuz.Tıkladıktan sonra <strong>Konfigürasyonları ayarla</strong> ingilizce olarak <strong>Edit Configuration</strong>‘a tıklayarak.Programımızın çalışmadan önce vereceğimiz argümanları belirleyebiliyoruz.Aşağıdaki resimde olduğu gibi.<strong>Program Arguments</strong> kısmında.</p>
+
+<p><img src="http://localhost:4000/assets/CLI-blog/screenshot6.png" alt="Screenshot6" /></p>
+
+<p>Aşağıda programın çıktısını görebilirsiniz.</p>
+
+<p><img src="http://localhost:4000/assets/CLI-blog/screenshot7.png" alt="Screenshot7" /></p>
+
+<p>Gördüğünüz gibi komut satırındaki seçeneklerin değerlerini başarılı bir şekilde okuduk artık ödev için değeri şu olursa şu kadar dön, entity name’i “mention” olursa şu methodu çalıştır gibi şeyler yazarak ödevi tamamlayabilirsiniz.Şimdilik bu kadar, bu blog için yazılmış kodlara <a href="https://github.com/koksalmis/trending">github hesabımdan</a> ulaşabilirsiniz.</p>
+
+<p>Teşekkür Ederim.</p>
+
+<p>Enes Köksalmış</p>
+
+
+  </div><a class="u-url" href="/jekyll/update/2017/12/22/About-CLI.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Email me!</li><li><a class="u-email" href="mailto:koksalmis@gmail.com">koksalmis@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/koksalmis"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">koksalmis</span></a></li><li><a href="https://www.twitter.com/Ekoksalmis"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">Ekoksalmis</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>projects, interests, and many things that I experienced.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-06T16:18:51+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">thoughts, projects, interests</title><subtitle>projects, interests, and many things that I experienced.</subtitle><entry><title type="html">Java(Maven) projemizden .jar dosyası nasıl oluşturuyoruz?</title><link href="http://localhost:4000/jekyll/update/2017/12/24/About-Creating-Jar-File.html" rel="alternate" type="text/html" title="Java(Maven) projemizden .jar dosyası nasıl oluşturuyoruz?" /><published>2017-12-24T12:19:58+03:00</published><updated>2017-12-24T12:19:58+03:00</updated><id>http://localhost:4000/jekyll/update/2017/12/24/About-Creating-Jar-File</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/12/24/About-Creating-Jar-File.html">&lt;p&gt;Merhaba Yıldız Tozları,&lt;/p&gt;
+
+&lt;p&gt;Daha önce CLI nedir ve nasıl projemizde kullanırız üzerine yazı yazmıştım.Yarın ödevin son günü ama :) Bugün belki ödevin kodunu yazmış fakat nasıl jar dosyası üreteceğini konusunda zorlananlar için nasıl jar dosyası oluşturabileceklerini göstermeye çalışacağım. Öncelikle üretmeye çalıştığımız şey ne ve ne içeriyor bilmemiz lazım.Onun için tanım ile başlayalım.&lt;/p&gt;
+
+&lt;h4 id=&quot;jar-dosyası-nedir&quot;&gt;&lt;strong&gt;JAR dosyası nedir?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.wikiwand.com/en/JAR_(file_format)&quot;&gt;Buradan&lt;/a&gt; da okuyabileceğiniz gibi.(Eğer Wikipedia’ya erişemiyorsanız. &lt;strong&gt;Wikiwand&lt;/strong&gt; eklentisini kullanabilirsiniz.Gayet hoş bir görünüm sağlıyor ve Wikipedia yasağını(!) aşıyor.) JAR birçok java sınıf dosyasını, kılavuz verisini(metadata) ve proje kaynaklarını(metin, resim, vs. gibi) dağıtım için kümeleyen, çalıştırılabilir bir paket fosya formatı. Yani bizim projemizle ilgili her şey bu jar dosyasının içinde olacak.Artık JAR’ın ne olduğunu öğrendiğimize göre üretmeye çalışabiliriz.&lt;/p&gt;
+&lt;h4 id=&quot;jar-dosyası-javamaven-projesinde-nasıl-üretilir&quot;&gt;&lt;strong&gt;JAR dosyası Java(Maven) projesinde nasıl üretilir?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Öncelikle &lt;strong&gt;&lt;em&gt;pom.xml&lt;/em&gt;&lt;/strong&gt; dosyamıza jar dosyası üretmek için gerekli olan direktifleri yazıyoruz.Aşağıda screenshotta &lt;strong&gt;öğrendiğim kadarıyla&lt;/strong&gt;, yorum ile detaylandırdım.Detaylı incelemenizi öneriyorum.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/JAR-Blogpost/screenshot1.png&quot; alt=&quot;Screenshot1&quot; /&gt;
+(Bu direktifleri daha önce &lt;strong&gt;JewelCLI&lt;/strong&gt; için eklediğimiz direktiflerin altına yazıyoruz unutmayın.)&lt;/p&gt;
+
+&lt;p&gt;Gerekli direktifleri yazdıktan sonra jar dosyasını oluşturmak için aşağıdaki adımları takip etmeniz gerekiyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Not:&lt;/strong&gt;Bu adımları izlediğim bir video’da öğrendim belki başka yolla da üretiliyordur ille böyle olacak diye bir şey şöylemiyorum.&lt;/p&gt;
+
+&lt;h4 id=&quot;adım-1&quot;&gt;&lt;strong&gt;Adım 1&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Önce View–&amp;gt;Tool Window–&amp;gt;Maven Projects’e tıklayın, tıkladıktan sonra sağ tarafta aşağıdaki gibi bir görünüm elde edeceksiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/JAR-Blogpost/screenshot2.png&quot; alt=&quot;Screenshot2&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;adım-2&quot;&gt;&lt;strong&gt;Adım 2&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Şimdi bunlardan sırayla &lt;strong&gt;&lt;em&gt;clean&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;install&lt;/em&gt;&lt;/strong&gt; ve &lt;strong&gt;&lt;em&gt;assembly::assembly&lt;/em&gt;&lt;/strong&gt;‘e çift tıklayarak ya da yukardaki çalıştır butonuna(Yeşil Üçgen) basarak çalıştırın.&lt;/p&gt;
+
+&lt;h4 id=&quot;adım-3&quot;&gt;&lt;strong&gt;Adım 3&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Çalıştırdıktan sonra bunları dosya ağacınızda &lt;strong&gt;&lt;em&gt;target&lt;/em&gt;&lt;/strong&gt; adlı bir dosyanın oluştuğunu  ve bunun içinde jar dosyanızın oluştuğunu göreceksiniz aşağıdaki gibi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/JAR-Blogpost/screenshot3.png&quot; alt=&quot;Screenshot3&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;adım-4&quot;&gt;&lt;strong&gt;Adım 4&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Jar dosyanıza &lt;strong&gt;trending.jar&lt;/strong&gt;‘a sağ tıklayınca açılan seçeneklerden &lt;strong&gt;Show in Folders&lt;/strong&gt;‘a tıklayarak ya da direkt projenizin bulunduğu dosyaya giderek ulaşabilirsiniz.Jar dosyanızı çalıştırmak içinse sadece &lt;strong&gt;java -jar trending.jar gerekliargüman1 gerekliargüman2 …&lt;/strong&gt; yapmanız yeterli. Aşağıda nasıl yapıldığını görebilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/JAR-Blogpost/screenshot4.png&quot; alt=&quot;Screenshot4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aynı dizin altında &lt;strong&gt;&lt;em&gt;all_tweets.txt&lt;/em&gt;&lt;/strong&gt; dosyası olmadığı için sadece argümanları bastırdı o kadar.Buraya kadar yazdığım kodlara &lt;a href=&quot;https://github.com/koksalmis/trending&quot;&gt;github hesabımdan&lt;/a&gt; ulaşabilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Not:&lt;/strong&gt;Ödevin deadline’ı geçtikten sonra eğer vaktim olursa, ödevin tamamlanmış halini github hesabımda paylaşacağım.&lt;/p&gt;
+
+&lt;p&gt;Teşekkür Ederim.&lt;/p&gt;
+
+&lt;p&gt;Enes Köksalmış&lt;/p&gt;</content><author><name></name></author><summary type="html">Merhaba Yıldız Tozları,</summary></entry><entry><title type="html">CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz ?</title><link href="http://localhost:4000/jekyll/update/2017/12/22/About-CLI.html" rel="alternate" type="text/html" title="CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz ?" /><published>2017-12-22T20:57:58+03:00</published><updated>2017-12-22T20:57:58+03:00</updated><id>http://localhost:4000/jekyll/update/2017/12/22/About-CLI</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/12/22/About-CLI.html">&lt;p&gt;Merhaba Yıldız Tozları,&lt;/p&gt;
+
+&lt;p&gt;Bugün bu dönem aldığım Advance Programming dersinin ödevinde kullanmamız gereken CLI(Command Line Interface)’i ve bunu JAVA(Maven) projemizde nasıl kullanacağımızı anlatacağım ama öncelikle &lt;strong&gt;“CLI nedir?”&lt;/strong&gt; onun üzerinde durmak istiyorum.&lt;/p&gt;
+
+&lt;h4 id=&quot;clicommand-line-interface-nedir&quot;&gt;&lt;strong&gt;CLI(Command Line Interface) nedir?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Eğer Bilgisayar Bilimleri ile ilgili bir bölüm okuyorsanız mutlaka komut satırında debelendiğiniz, bir şeyler yapmaya çalıştığınız olmuştur işte o zamanlarda neler yapabileceğimizi, komutu hangi seçeneklerle kullanabildiğimizi görmek için genelde &lt;strong&gt;“ilgili komut –help”&lt;/strong&gt; ya da &lt;strong&gt;“ilgili komut?”&lt;/strong&gt; gibi şeyler yaparız.İşte o &lt;strong&gt;–help&lt;/strong&gt; ile gelen her şey ve &lt;strong&gt;–help&lt;/strong&gt;‘in kendisi ilgili komut satırı için bir arayüz. Command Line Interface’de oradan geliyor.Yazılımı geliştiren kişi tarafından komut satırı için bize bir arayüz sağlanmış, neler yapılabileceği vs. gibi.Mesela aşağıdaki gibi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/CLI-blog/screenshot1.png&quot; alt=&quot;Screenshot1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Gördüğünüz gibi &lt;strong&gt;apt get install&lt;/strong&gt; ile kullanabileceğim seçenekler ve bunların neler yaptığı listelenmiş.İşte bu ödevde bizden bunun gibi yazılımı çalıştırırken kullanabileceğimiz seçenekler yaratmamız isteniyor.Şimdi bizden istenen seçenekler neler ve bunların açıklamaları neler.Ödevin sitesinde belirtilmiş aşağıdaki gibi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/CLI-blog/screenshot2.png&quot; alt=&quot;Screenshot2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Şimdi hocamız sağolsun bize linkte bırakmış kullanabileceğimiz CLI araçlarından birinin.&lt;a href=&quot;http://jewelcli.lexicalscope.com/&quot;&gt;JewelCLI&lt;/a&gt;.Şimdi ben direkt nasıl bunu JAVA projemize dahil edip kullanacağımızı anlatacağım.Ben geliştirme ortamı olarak intelliJ IDEA Community Edition kullanıyorum.Siz artık hangi ortamda geliştiriyorsanız ona göre davranmalısınız.&lt;/p&gt;
+
+&lt;h4 id=&quot;jewelcli-java-projesinde-nasıl-kullanılır&quot;&gt;&lt;strong&gt;JewelCLI, JAVA projesinde nasıl kullanılır?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Öncelikle Java maven projenizi oluşturun.Oluşturduktan sonra aşağıdaki gibi bir proje dosyalar ağacınızın oluşmuş olması gerekiyor.Daha sonra &lt;strong&gt;pom.xml&lt;/strong&gt; dosyasının içine &lt;strong&gt;JewelCLI&lt;/strong&gt; için gerekli dependency’i ekliyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/CLI-blog/screenshot3.png&quot; alt=&quot;Screenshot3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Daha sonra normalde &lt;strong&gt;java&lt;/strong&gt; klasörünün içi boş fakat ben &lt;strong&gt;“CommandLine”&lt;/strong&gt; adında bir interface ve yaratacağım seçenekleri denemek için &lt;strong&gt;Main&lt;/strong&gt; sınıfını ürettim.Bu ödevde mesela yazacağınız kodlar bu Main sınıfının içinde olabilir tabiki kodlarınız komut satırındaki argümanlar parse(ayrıştırmak) edildikten sonra.Bunları da yaptıktan sonra şöyle bir görünüm elde etmeniz gerekiyor.Ben seçenekleri yaratan ve bu seçeneklere hangi methodlar vasıtasıyla erişeceğimizi yazdım aşağıdaki gibi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/CLI-blog/screenshot4.png&quot; alt=&quot;Screenshot4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Yukarıda detaylı yorum bıraktım 1 seçenek için diğer 3’ü için de aynı şey geçerli.Son olarak en altta &lt;strong&gt;Unparsed&lt;/strong&gt; etiketini göreceksiniz, o bu ödev için bizim parse edilmeyen bir argüman.Bu ödevde bizim tweetleri okuyacağımız dosya adı olacak.&lt;/p&gt;
+
+&lt;h4 id=&quot;peki-yarattığımız-seçenekleri-nasıl-kullanıyoruz&quot;&gt;&lt;strong&gt;Peki yarattığımız seçenekleri nasıl kullanıyoruz?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Aşağıda yorumlarla detaylandırdığım screenshot’ı detaylı olarak okuyun.Ben burada önce &lt;strong&gt;“CommandLine result = CliFactory.parseArguments(CommandLine.class, args);”&lt;/strong&gt; komutu ile komut satırında bizim programızı kullanacak olan kişinin girdiği seçenekleri parse(ayrıştırmak) ediyorum.Peki parse ettiğim bu seçeneklerin değerlerini nasıl okuyacağım mesela kullanıcı &lt;strong&gt;java jar target/trending.jar -n 20 -e mention -i Tweets.txt&lt;/strong&gt;
+bu komutu kullandı ben bu seçeneklerin değerlerini nasıl okuyacağım.Resimde de gördüğünüz gibi kullanıcının girdiği her değeri aşağıdaki gibi yakalıyorum.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/CLI-blog/screenshot5.png&quot; alt=&quot;Screenshot5&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;peki-komut-satırı-için-seçenekleri-intellijde-nasıl-vereceğim-&quot;&gt;&lt;strong&gt;Peki komut satırı için seçenekleri intelliJ’de nasıl vereceğim ?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Şu şekilde önce yukarıda sağ üstte gördüğünüz &lt;strong&gt;Çalıştır&lt;/strong&gt; butonunun(&lt;strong&gt;Yeşil Üçgen&lt;/strong&gt;) yanındaki yere tıklıyorsunuz.Tıkladıktan sonra &lt;strong&gt;Konfigürasyonları ayarla&lt;/strong&gt; ingilizce olarak &lt;strong&gt;Edit Configuration&lt;/strong&gt;‘a tıklayarak.Programımızın çalışmadan önce vereceğimiz argümanları belirleyebiliyoruz.Aşağıdaki resimde olduğu gibi.&lt;strong&gt;Program Arguments&lt;/strong&gt; kısmında.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/CLI-blog/screenshot6.png&quot; alt=&quot;Screenshot6&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aşağıda programın çıktısını görebilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/CLI-blog/screenshot7.png&quot; alt=&quot;Screenshot7&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Gördüğünüz gibi komut satırındaki seçeneklerin değerlerini başarılı bir şekilde okuduk artık ödev için değeri şu olursa şu kadar dön, entity name’i “mention” olursa şu methodu çalıştır gibi şeyler yazarak ödevi tamamlayabilirsiniz.Şimdilik bu kadar, bu blog için yazılmış kodlara &lt;a href=&quot;https://github.com/koksalmis/trending&quot;&gt;github hesabımdan&lt;/a&gt; ulaşabilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;Teşekkür Ederim.&lt;/p&gt;
+
+&lt;p&gt;Enes Köksalmış&lt;/p&gt;</content><author><name></name></author><summary type="html">Merhaba Yıldız Tozları,</summary></entry><entry><title type="html">How to build websites on GitHub Pages with jekyll</title><link href="http://localhost:4000/jekyll/update/2017/11/18/welcome-to-jekyll.html" rel="alternate" type="text/html" title="How to build websites on GitHub Pages with jekyll" /><published>2017-11-18T11:39:58+03:00</published><updated>2017-11-18T11:39:58+03:00</updated><id>http://localhost:4000/jekyll/update/2017/11/18/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/11/18/welcome-to-jekyll.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;Today, I want to share my experience about building websites on &lt;strong&gt;Github Pages&lt;/strong&gt; with &lt;strong&gt;jekyll&lt;/strong&gt;. Actually, I have a website on Wordpress in Turkish. But also I wanted to build another one in English to improve my English writing skill and make my contents public not local. And then, I searched for platform for my website. I didn’t want to use Wordpress again because I experienced it. So I decided to try another one.While I was searching, I found GitHub Pages. It gives you free hosting for your website or project website from your repository.That’s perfect !. So I decided to build my website with GitHub Pages.And I learned Github Pages support a thing named jekyll. I didn’t know what “jekyll” is . After a quick search, I learned &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;jekyll&quot; is a blog-aware, static site generator in Ruby&lt;/code&gt;. Waitt What ? What is the meaning of &lt;code class=&quot;highlighter-rouge&quot;&gt;blog-aware&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;static site generator&lt;/code&gt; ? So first, let’s learn these terms.&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-aware-&quot;&gt;Blog-aware ?&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;One of Jekyll’s best aspects is that it is “blog aware”. What does this mean, exactly? Well, simply put, it means that blogging is baked into Jekyll’s functionality. If you write articles and publish them online, you can publish and maintain a blog simply by managing a folder of text-files on your computer. Compared to the hassle of configuring and maintaining databases and web-based CMS systems, this will be a welcome change!&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Definition from jekyll official &lt;a href=&quot;https://jekyllrb.com/docs/posts/&quot;&gt;website&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;static-site-generator-&quot;&gt;Static site generator ?&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;A static site generator takes source files and generates an entirely static website.&lt;/code&gt; from quite easy to understand content on &lt;a href=&quot;https://learn.cloudcannon.com/jekyll/why-use-a-static-site-generator/&quot;&gt;here&lt;/a&gt; and also there are videos about it.&lt;/p&gt;
+
+&lt;p&gt;After these terms, we can start building our website but we need to download first &lt;strong&gt;Ruby&lt;/strong&gt; and then &lt;strong&gt;Bundler&lt;/strong&gt;.
+You can download &lt;strong&gt;Ruby&lt;/strong&gt; from &lt;a href=&quot;https://www.ruby-lang.org/en/downloads/&quot;&gt;here&lt;/a&gt; and download bundler like below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/screenshot1.png&quot; alt=&quot;Screenshot1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After that, we need to create a repository for our website files. You can do it easily with &lt;code class=&quot;highlighter-rouge&quot;&gt;git init reponame&lt;/code&gt; command in any path.Then, we need to install &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;. We can do it with &lt;code class=&quot;highlighter-rouge&quot;&gt;bundler&lt;/code&gt; that downloaded before but we need to create a file named &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; and then we need to add these two lines in it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/screenshot4.png&quot; alt=&quot;Screenshot2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, we can download &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; and its dependencies based on our &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; content like below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/screenshot5.png&quot; alt=&quot;Screenshot3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Okay, now we did all things before the create our website contents.All things are okay.&lt;/p&gt;
+
+&lt;p&gt;Now we need to create some files and fill in these files because if you remember &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; is a static-site generator that means we will give some files to &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; and then our website will be created based on these files. These files and &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; file structure is explained in &lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot;&gt;here&lt;/a&gt;.So, we need to create all them step by step but I will not show them all. At the end you are suppose to have a repository like below. These files also this website’s files.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/screenshot6.png&quot; alt=&quot;Screenshot4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A much more nice screenshot from official site is below. In my case I didn’t use all of files because I didn’t need them all. But it may necessary in your case. Before you start building your website. You should define your requirements first.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/screenshot7.png&quot; alt=&quot;Screenshot5&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And also, If you want to know each files role in website you can learn from &lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot;&gt;here&lt;/a&gt;. It is well explained and clear.&lt;/p&gt;
+
+&lt;h3 id=&quot;publishing-the-website&quot;&gt;Publishing The Website&lt;/h3&gt;
+
+&lt;p&gt;If you want to publish your website on The Internet. Just upload your files in a repository that named &lt;strong&gt;username.github.io&lt;/strong&gt;. And &lt;code class=&quot;highlighter-rouge&quot;&gt;GitHub&lt;/code&gt; will do the rest. After some time, you can check your website from &lt;strong&gt;username.github.io&lt;/strong&gt;. For example, this website’s repository on my GitHub account you can find &lt;a href=&quot;https://github.com/koksalmis/koksalmis.github.io&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; was a litte bit difficult for me because I had no idea “What is static site generator ?” and “What is Jekyll ?”. And also &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; was a litte bit complex because there are many files and hard to build in locally not like classic(HTML,CSS,Javascript). But after understanding structure of &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; and how it makes easier things, For example publishing posts in &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;.You don’t need to write same HMTL code everytime for your each post and like it.&lt;/p&gt;
+
+&lt;p&gt;These my thoughts and experience about &lt;code class=&quot;highlighter-rouge&quot;&gt;Github Pages&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thank you&lt;/p&gt;
+
+&lt;p&gt;Enes Köksalmış&lt;/p&gt;</content><author><name></name></author><summary type="html">Hi Everyone,</summary></entry></feed>
