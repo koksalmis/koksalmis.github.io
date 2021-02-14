@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz ?"
+title:  "CLI(Command Line Interface) nedir ve JAVA(Maven) projemize nasıl ekleriz?"
 date:   2017-12-22 20:57:58 +0300
 categories: jekyll update
 ---
@@ -19,7 +19,7 @@ Gördüğünüz gibi **apt get install** ile kullanabileceğim seçenekler ve bu
 
 ![Screenshot2]({{ "/assets/CLI-blog/screenshot2.png" | absolute_url }})
 
-Şimdi hocamız sağolsun bize linkte bırakmış kullanabileceğimiz CLI araçlarından birinin.[JewelCLI](http://jewelcli.lexicalscope.com/).Şimdi ben direkt nasıl bunu JAVA projemize dahil edip kullanacağımızı anlatacağım.Ben geliştirme ortamı olarak intelliJ IDEA Community Edition kullanıyorum.Siz artık hangi ortamda geliştiriyorsanız ona göre davranmalısınız.
+Şimdi hocamız sağolsun bize linkte bırakmış kullanabileceğimiz CLI araçlarından birinin -> [JewelCLI](http://jewelcli.lexicalscope.com/). Şimdi ben direkt nasıl bunu JAVA projemize dahil edip kullanacağımızı anlatacağım. Ben geliştirme ortamı olarak intelliJ IDEA Community Edition kullanıyorum. Siz artık hangi ortamda geliştiriyorsanız ona göre davranmalısınız.
 
 #### **JewelCLI, JAVA projesinde nasıl kullanılır?**
 
@@ -41,7 +41,7 @@ bu komutu kullandı ben bu seçeneklerin değerlerini nasıl okuyacağım.Resimd
 
 ![Screenshot5]({{ "/assets/CLI-blog/screenshot5.png" | absolute_url }})
 
-#### **Peki komut satırı için seçenekleri intelliJ'de nasıl vereceğim ?**
+#### **Peki komut satırı için seçenekleri intelliJ'de nasıl vereceğim?**
 
 Şu şekilde önce yukarıda sağ üstte gördüğünüz **Çalıştır** butonunun(**Yeşil Üçgen**) yanındaki yere tıklıyorsunuz.Tıkladıktan sonra **Konfigürasyonları ayarla** ingilizce olarak **Edit Configuration**'a tıklayarak.Programımızın çalışmadan önce vereceğimiz argümanları belirleyebiliyoruz.Aşağıdaki resimde olduğu gibi.**Program Arguments** kısmında.
 

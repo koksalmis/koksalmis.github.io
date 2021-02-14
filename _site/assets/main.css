@@ -329,7 +329,7 @@ table {
 
 .post-link {
   display: block;
-  font-size: 20px; }
+  font-size: 24px; }
 
 /**
  * Posts
@@ -338,7 +338,7 @@ table {
   margin-bottom: 30px; }
 
 .post-title {
-  font-size: 36px;
+  font-size: 42px;
   letter-spacing: -1px;
   line-height: 1; }
   @media screen and (max-width: 800px) {
