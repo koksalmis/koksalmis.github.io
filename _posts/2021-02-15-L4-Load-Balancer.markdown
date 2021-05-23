@@ -123,7 +123,7 @@ Now we can test our load balancer, to test it I created 4 simple HTTP Server the
 curl localhost:8080
 ```
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/BJc4qExn2Sc "L4(TCP) Load Balancer")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/BJc4qExn2Sc/0.jpg)](https://youtu.be/BJc4qExn2Sc "L4(TCP) Load Balancer")
 
 
 Thank You.
