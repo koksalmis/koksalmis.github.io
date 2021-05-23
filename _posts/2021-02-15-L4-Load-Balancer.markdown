@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to make your own L4(TCP) Load Balancer?"
-date:   2021-05-23 00:00:58 +0300
+date:   2021-05-23 21:47:58 +0300
 categories: jekyll update
 ---
 
@@ -118,14 +118,13 @@ public class LoadBalancer extends Thread {
 As you can see in ``` proxy ``` method we create 2 thread to copy(via apache [IOUtils](https://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/IOUtils.html)) bytes from load balancer to chosed backend server and vice versa to send requests and read responses.
 
 
-Now we can test our load balancer, to test it I created 4 simple HTTP Server then I start my load balancer and run command below several times and watch how requests routed to backend servers. Here is a short demo video.
-```
-curl localhost:8080
-```
+Now we can test our load balancer, to test it I created 4 simple HTTP Server then I start my load balancer and run curl command  several times to mimic load and watch how requests routed to backend servers. Here is a [short demo video](https://youtu.be/BJc4qExn2Sc).
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/BJc4qExn2Sc/0.jpg)](https://youtu.be/BJc4qExn2Sc "L4(TCP) Load Balancer")
+And if you want to see [source code](https://github.com/koksalmis/L4-TCP-LoadBalancer) 
 
+In this blogpost I inspired Ahmet Alp Balkan's [Youtube Videos](https://www.youtube.com/watch?v=QTBZxDgRZM0). If you are interested system level tools and techs you should check his [Youtube Channel](https://www.youtube.com/channel/UC6LgxY4YwVoE1F-v8sT9Jaw)
 
 Thank You.
+
 Enes Köksalmış
 
