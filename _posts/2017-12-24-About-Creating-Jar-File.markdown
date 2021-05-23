@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Java(Maven) projemizden .jar dosyası nasıl oluşturuyoruz?"
+title:  "Java(Maven) projemizden .jar dosyası nasıl oluşturuyoruz?[tr]"
 date:   2017-12-24 12:19:58 +0300
 categories: jekyll update
 ---

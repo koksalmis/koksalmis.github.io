@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to build websites on GitHub Pages with jekyll"
+title:  "How to build websites on GitHub Pages with jekyll?"
 date:   2017-11-18 11:39:58 +0300
 categories: jekyll update
 ---
